@@ -1,0 +1,11 @@
+import cv2
+img = cv2.imread("image.jpg")
+result = img.copy()
+roi = result[100:300,200:400]
+result[0:200,0:200] = roi
+original = cv2.resize(img,(400,300))
+output = cv2.resize(result,(400,300))
+cv2.imshow("Original Image", original)
+cv2.imshow("ROI Output", output)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
