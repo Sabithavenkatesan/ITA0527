@@ -1,0 +1,11 @@
+import cv2
+img = cv2.imread("image.jpg")
+watermark = img.copy()
+cv2.putText(watermark,"Watermark",(50,50),
+cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,255),2)
+original = cv2.resize(img,(400,300))
+output = cv2.resize(watermark,(400,300))
+cv2.imshow("Original Image", original)
+cv2.imshow("Watermarked Image", output)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
