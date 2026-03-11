@@ -1,0 +1,8 @@
+import cv2
+img = cv2.imread(r"C:/Users/SABIT/OneDrive/Documents/input.jpg")
+img = cv2.resize(img, (300,300))
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5,5))
+blackhat = cv2.morphologyEx(img, cv2.MORPH_BLACKHAT, kernel)
+cv2.imshow("Original + Black-hat", cv2.hconcat([img, blackhat]))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
