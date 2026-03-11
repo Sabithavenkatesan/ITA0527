@@ -1,0 +1,12 @@
+import cv2
+cap = cv2.VideoCapture(r"C:/Users/SABIT/OneDrive/Documents/video.mp4")
+frames=[]
+while True:
+    ret,f = cap.read()
+    if not ret: break
+    frames.append(cv2.resize(f,(400,300)))
+cap.release()
+for f in reversed(frames):
+    cv2.imshow("Reverse Video", f)
+    if cv2.waitKey(30) & 0xFF==27: break
+cv2.destroyAllWindows()
