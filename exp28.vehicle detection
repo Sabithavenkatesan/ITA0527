@@ -1,0 +1,14 @@
+import cv2
+cap=cv2.VideoCapture(r"C:/Users/SABIT/OneDrive/Documents/traffic.mp4")
+car_cascade=cv2.CascadeClassifier(r"C:/Users/SABIT/OneDrive/Documents/haarcascade_car.xml")
+while True:
+    ret,f=cap.read()
+    if not ret: break
+    f=cv2.resize(f,(400,300))
+    gray=cv2.cvtColor(f,cv2.COLOR_BGR2GRAY)
+    for x,y,w,h in car_cascade.detectMultiScale(gray,1.1,1):
+        cv2.rectangle(f,(x,y),(x+w,y+h),(0,0,255),2)
+    cv2.imshow("Original + Vehicle", f)
+    if cv2.waitKey(25)&0xFF==27: break
+cap.release()
+cv2.destroyAllWindows()
