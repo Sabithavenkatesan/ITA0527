@@ -1,0 +1,7 @@
+import cv2
+img = cv2.imread(r"C:/Users/SABIT/OneDrive/Documents/watch.jpg")
+img = cv2.resize(img,(300,300))
+edges = cv2.Canny(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY),50,150)
+cv2.imshow("Original + Detected", cv2.hconcat([img, cv2.cvtColor(edges,cv2.COLOR_GRAY2BGR)]))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
