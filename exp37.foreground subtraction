@@ -1,0 +1,11 @@
+import cv2
+img = cv2.imread("image.jpg")
+hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+lower = (0,0,0)
+upper = (180,255,120)
+mask = cv2.inRange(hsv,lower,upper)
+fg_removed = cv2.bitwise_not(mask)
+cv2.imshow("Original",cv2.resize(img,(300,300)))
+cv2.imshow("Foreground Removed",cv2.resize(fg_removed,(300,300)))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
