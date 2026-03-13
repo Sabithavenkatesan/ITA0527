@@ -1,0 +1,7 @@
+import cv2
+import numpy as np
+img = np.ones((400,400,3),dtype="uint8")*255
+cv2.rectangle(img,(100,100),(300,300),(0,255,0),3)
+cv2.imshow("Rectangle",cv2.resize(img,(300,300)))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
